@@ -1,0 +1,344 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TodoFlow | Dashboard</title>
+
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+
+    <div class="dashboard">
+
+        <!-- ==============================
+             SIDEBAR
+        ============================== -->
+
+        <aside class="sidebar" id="sidebar">
+
+            <!-- Mobile Close Button -->
+            <button class="close-sidebar" id="closeSidebar">
+                ✕
+            </button>
+
+            <!-- Logo -->
+            <div class="logo">
+                <span>✓</span>
+                <h2>TodoFlow</h2>
+            </div>
+
+
+            <!-- Navigation -->
+            <nav class="navigation">
+
+                <a href="#" class="nav-item active" id="dashboardNav">
+                    <span>⌂</span>
+                    Dashboard
+                </a>
+
+                <a href="#" class="nav-item" id="myTasksNav">
+                    <span>☑</span>
+                    My Tasks
+                </a>
+
+                <a href="#" class="nav-item" id="completedNav">
+                    <span>✓</span>
+                    Completed
+                </a>
+
+            </nav>
+
+
+            <!-- Sidebar Bottom -->
+            <div class="sidebar-bottom">
+
+                <a href="#" class="nav-item settings-item">
+                    <span>⚙</span>
+                    Settings
+                </a>
+
+                <!-- Logout -->
+                <button class="logout-btn" onclick="logout()">
+                    <span>↪</span>
+                    Logout
+                </button>
+
+            </div>
+
+        </aside>
+
+
+        <!-- ==============================
+             MAIN CONTENT
+        ============================== -->
+
+        <main class="main-content">
+
+
+            <!-- ==============================
+                 TOP HEADER
+            ============================== -->
+
+            <header class="top-header">
+
+                <!-- Welcome / Heading -->
+                <div class="header-title">
+
+                    <p class="welcome-text">
+                        Welcome, <span id="welcomeUserName"></span> 👋
+                    </p>
+
+                    <h1>
+                        Dashboard
+                    </h1>
+
+                </div>
+
+
+                <!-- Desktop User Profile -->
+                <div class="user-profile">
+
+                    <div class="avatar">
+                        A
+                    </div>
+
+                    <div class="user-info">
+                        <strong id="desktopUserName">
+                            User
+                        </strong>
+                    </div>
+
+                </div>
+
+
+                <!-- Mobile Menu Button -->
+                <button class="mobile-menu-btn" id="openSidebar">
+                    ☰
+                </button>
+
+            </header>
+
+
+            <!-- ==============================
+                 STATISTICS
+            ============================== -->
+
+            <section class="stats-grid">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        ✓
+                    </div>
+
+                    <div>
+                        <p>Total Tasks</p>
+
+                        <h2 id="totalTasks">
+                            0
+                        </h2>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        ◷
+                    </div>
+
+                    <div>
+                        <p>Pending</p>
+
+                        <h2 id="pendingTasks">
+                            0
+                        </h2>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        ✓
+                    </div>
+
+                    <div>
+                        <p>Completed</p>
+
+                        <h2 id="completedTasks">
+                            0
+                        </h2>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ==============================
+                 TASK SECTION
+            ============================== -->
+
+            <section class="tasks-section">
+
+                <div class="section-header">
+
+                    <div>
+
+                        <p class="section-label">
+                            TASK MANAGEMENT
+                        </p>
+
+                        <h2>
+                            My Tasks
+                        </h2>
+
+                    </div>
+
+
+                    <button
+                        class="add-task-btn"
+                        onclick="openTaskForm()">
+
+                        + Add Task
+
+                    </button>
+
+                </div>
+
+
+                <!-- ==============================
+                     CREATE TASK FORM
+                ============================== -->
+
+                <div
+                    id="taskFormContainer"
+                    class="task-form-container">
+
+                    <form
+                        id="taskForm"
+                        onsubmit="createTask(event)">
+
+                        <h3>
+                            Create New Task
+                        </h3>
+
+
+                        <input
+                            type="text"
+                            id="title"
+                            placeholder="Task title"
+                            required>
+
+
+                        <textarea
+                            id="description"
+                            placeholder="Task description"
+                            required></textarea>
+
+
+                        <div class="task-form-row">
+
+                            <input
+                                type="date"
+                                id="duedate"
+                                required>
+
+
+                            <select id="priority" required>
+
+                                <option value="">
+                                    Select Priority
+                                </option>
+
+                                <option value="low">
+                                    Low
+                                </option>
+
+                                <option value="medium">
+                                    Medium
+                                </option>
+
+                                <option value="high">
+                                    High
+                                </option>
+
+                            </select>
+
+
+                            <select id="status" required>
+
+                                <option value="">
+                                    Select Status
+                                </option>
+
+                                <option value="pending">
+                                    Pending
+                                </option>
+
+                                <option value="completed">
+                                    Completed
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="form-actions">
+
+                            <button
+                                type="submit"
+                                class="save-task-btn">
+
+                                Create Task
+
+                            </button>
+
+
+                            <button
+                                type="button"
+                                class="cancel-btn"
+                                onclick="closeTaskForm()">
+
+                                Cancel
+
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+
+                <!-- Message -->
+                <p id="message"></p>
+
+
+                <!-- Tasks -->
+                <div
+                    id="tasks"
+                    class="tasks-list">
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <script src="dashboard.js"></script>
+
+</body>
+
+</html>
