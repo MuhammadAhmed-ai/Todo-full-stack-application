@@ -23,22 +23,8 @@ const signupData = {
     password: passwordValue
 };
 
-// Backend ke signup API ko request bhej rahe hain
-// const response = await fetch("http://localhost:5000/sign-up",{
 
-// method ppost hai 
-//     method : "POST",
-
- // Backend ko bata rahe hain ke
-    // hum JSON format mein data bhej rahe hain
-//     headers :{
-//         "Content-type": "application/json"
-//     },
-
-//     bosy : JSON.stringify(signupData)
-// })
-
-const response = await fetch("http://localhost:5000/sign-up", {
+const response = await fetch("https://todo-full-stack-application-production.up.railway.app/sign-up", {
     method : "POST",
     headers : {
         "Content-type" : "application/json"

@@ -108,7 +108,7 @@ async function getTasks(filter = "all") {
     try {
 
         const response = await fetch(
-            "http://localhost:5000/get-task",
+         "https://todo-full-stack-application-production.up.railway.app/get-task",
             {
                 method: "GET",
 
@@ -377,7 +377,7 @@ async function createTask(event) {
     try {
 
         const response = await fetch(
-            "http://localhost:5000/create-task",
+            "https://todo-full-stack-application-production.up.railway.app/create-task",
             {
                 method: "POST",
 
@@ -526,7 +526,7 @@ async function editTask(taskId) {
     try {
 
         const response = await fetch(
-            `http://localhost:5000/update-task/${taskId}`,
+            `https://todo-full-stack-application-production.up.railway.app/update-task/${taskId}`,
             {
                 method: "PUT",
 
@@ -619,7 +619,7 @@ async function deleteTask(taskId) {
     try {
 
         const response = await fetch(
-            `http://localhost:5000/delete-task/${taskId}`,
+            `https://todo-full-stack-application-production.up.railway.app/delete-task/${taskId}`,
             {
                 method: "DELETE",
 
